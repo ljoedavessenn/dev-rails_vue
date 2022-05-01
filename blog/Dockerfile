@@ -14,8 +14,8 @@ RUN apk --no-cache upgrade && \
 
 COPY Gemfile* .
 RUN bundle install
-COPY . .
+COPY . ./
 EXPOSE 3000
 
 # Configure the main process to run when running the image
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server", "-b", "0.0.0.0"]
