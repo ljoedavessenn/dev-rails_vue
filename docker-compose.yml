@@ -1,34 +1,30 @@
 version: '3.9'
 
 services:
-  # rails_back:
-  #   container_name: rails_back
-  #   build: 
-  #     context: ./blog
-  #   init: true
-  #   volumes:
-  #     - '~/volumes/rails_back/app:/app'
-  #     - '~/volumes/rails_back/uploads:/app/public/uploads'
-  #   ports:
-  #     - 3000:3000
+  rails_back:
+    container_name: rails_back
+    build: 
+      context: ./blog
+    ports:
+      - 3000:3000
 
-  #   depends_on:
-  #     - postgres
+    depends_on:
+      - postgres
   
   vue_front:
     build: ./vue-project
     ports: 
       - 3010:3000
 
-  # postgres:
-  #   image: postgres:alpine
-  #   container_name: postgres
-  #   restart: always
-  #   ports:
-  #     - 5432:5432
-  #   volumes:
-  #     - '~/volumes/postgres/data:/var/lib/postgresql/data'
-  #   environment:
-  #     POSTGRES_DB: db_development
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - '~/volumes/postgres/data:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_DB: db_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
