@@ -12,7 +12,7 @@ RUN apk --no-cache upgrade && \
       postgresql-dev\
       tzdata
 
-COPY Gemfile* .
+COPY Gemfile* ./
 RUN bundle install
 COPY . ./
 EXPOSE 3000
