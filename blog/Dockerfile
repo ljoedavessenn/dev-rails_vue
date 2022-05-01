@@ -16,7 +16,6 @@ COPY Gemfile* ./
 RUN bundle install
 COPY . ./
 EXPOSE 3000
-RUN bin/rails server -b 0.0.0.0
 
 # Configure the main process to run when running the image
-# CMD ["bin/rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server", "-b", "0.0.0.0"]
