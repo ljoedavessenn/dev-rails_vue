@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  rails_blog:
+    container_name: rails_dev
+    build: .
+    command: bundle exec rails s -b '0.0.0.0'
+    volumes:
+      - '~/volumes/rails/blog-test-app:/app'
+      - '~/volumes/rails/blog-test-app/uploads:/app/public/uploads'
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+  
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - '~/volumes/postgres/data:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_DB: db_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
