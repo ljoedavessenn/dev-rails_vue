@@ -1,0 +1,14 @@
+/dist
+/node_modules
+
+_*
+
+.dockerignore
+.editorconfig
+.env.sample
+.git*
+
+Dockerfile
+docker-compose.yml
+
+**/*.md
