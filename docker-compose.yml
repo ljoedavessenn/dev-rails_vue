@@ -14,7 +14,7 @@ services:
   vue_front:
     build: ./vue-project
     ports: 
-      - 3010:3000
+      - 3010:80
 
   postgres:
     image: postgres:alpine
