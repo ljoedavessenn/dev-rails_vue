@@ -12,6 +12,7 @@ services:
       - postgres
   
   vue_front:
+    container_name: vue_front
     build: ./vue-project
     ports: 
       - 3010:80
